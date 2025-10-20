@@ -1,4 +1,7 @@
 
+using Infrastructure.Presistence;
+using Microsoft.EntityFrameworkCore;
+
 namespace WebApp_With_CQRS
 {
     public class Program
@@ -13,7 +16,7 @@ namespace WebApp_With_CQRS
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("ConnectString")));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

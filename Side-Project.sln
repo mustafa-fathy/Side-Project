@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36429.23 d17.14
+VisualStudioVersion = 17.14.36429.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp-With-CQRS", "WebApp-With-CQRS\WebApp-With-CQRS.csproj", "{75C4317A-C81F-4CB3-BD9C-23380FB9D439}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApp-With-CQRS\WebApi.csproj", "{75C4317A-C81F-4CB3-BD9C-23380FB9D439}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastucure\Infrastructure.csproj", "{C3402248-6175-4E74-BCD6-618D47790481}"
 EndProject
