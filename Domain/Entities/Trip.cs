@@ -8,6 +8,7 @@ namespace Domain.Entities
         public DateTime StartingDate { get; set; }
         public DateTime EndingDate { get; set; }
         public bool IsRefundable { get; set; }
+        [Precision(18, 2)]
         public decimal Price { get; set; }
         public int Guests { get; set; }
         public TimeSpan TripHours { get; set; }
@@ -18,6 +19,5 @@ namespace Domain.Entities
         public int FromCityId { get; set; }
         public virtual City City { get; set; }
 
-        public virtual ICollection<CityTrip> CityTrips { get; set; }
     }
 }
