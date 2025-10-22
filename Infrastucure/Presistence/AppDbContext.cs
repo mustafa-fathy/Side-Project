@@ -23,6 +23,11 @@ namespace Infrastructure.Presistence
             modelBuilder.Entity<Trip>()
                 .Property(P => P.Price)
                 .HasPrecision(18, 2);
+            modelBuilder.Entity<CityPackage>()
+                .HasOne(cp => cp.Package)
+                .WithMany(p => p.CityPackages)
+                .HasForeignKey(cp => cp.PackageId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
