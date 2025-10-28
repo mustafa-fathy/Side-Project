@@ -185,7 +185,7 @@ namespace Infrastructure.Migrations
                         column: x => x.PackageId,
                         principalTable: "Package",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
