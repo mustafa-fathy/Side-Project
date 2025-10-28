@@ -1,4 +1,6 @@
-﻿namespace Domain.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities
 {
     public class City : BaseEntity
     {
@@ -8,11 +10,12 @@
 
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }
-
+        
+        public virtual ICollection<Package> Packages { get; set; }
         public virtual ICollection<Trip> Trips { get; set; }
         public virtual ICollection<CityTrip> CityTrips { get; set; }
-        public virtual ICollection<Package> Packages { get; set; }
-        public virtual ICollection<CityPackage> CityPackges { get; set; }
+    
+        public virtual ICollection<CityPackage> CityPackages { get; set; }
 
 
     }
