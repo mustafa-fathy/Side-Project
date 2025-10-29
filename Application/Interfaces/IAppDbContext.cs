@@ -13,5 +13,7 @@ namespace Application.Interfaces
         DbSet<CityPackage> CityPackages { get; set; }
         DbSet<Trip> Trips { get; set; }
         DbSet<Airport> Airports { get; set; }
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

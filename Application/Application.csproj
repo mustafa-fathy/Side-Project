@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Cities\Commands\Create\" />
     <Folder Include="Cities\Commands\Delete\" />
     <Folder Include="Cities\Commands\Edit\" />
     <Folder Include="Cities\Dtos\" />
