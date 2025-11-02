@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace Application.Common.Dtos
 {
-    public class ResultDto
+    public class ErrorDto
     {
-        public object Result { get;set }
+        public int Code { get; set; }
         public string Message { get; set; }
-    }
-    public class ResultDtoThirdParty<T>
-    {
-        public T Result { get;set }
-        
+        public object Detailize { get; set; }
     }
 }

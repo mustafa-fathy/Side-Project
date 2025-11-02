@@ -3,14 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Application.Common.Dtos
 {
-    public class ResponseDto
+    public class ResponseDto<T>
     {
-        public static ResponseDto Success(ResultDto resultDto)
+        public ResultDto Result { get; set; }
+
+        public ErrorDto Error { get; set; }
+
+        public bool IsSuccess { get; set; }
+
+        private ResponseDto(bool status, ResultDto result, ErrorDto error)
         {
-            throw new NotImplementedException();
+            IsSuccess = status;
+            Result = result;
+            Error = error;
         }
+        public static ResponseDto<T> Success(ResultDto result)
+        {
+            return new ResponseDto<T>(true, result, null);
+
+        }
+        public static ResponseDto<T> Failure(ErrorDto error)
+        {
+            return new ResponseDto<T>(false, null, error);
+
+        }
+
     }
 }
