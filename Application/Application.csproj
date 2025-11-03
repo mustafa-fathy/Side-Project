@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Cities\Commands\Delete\" />
     <Folder Include="Cities\Dtos\" />
     <Folder Include="Cities\Queries\" />
   </ItemGroup>
