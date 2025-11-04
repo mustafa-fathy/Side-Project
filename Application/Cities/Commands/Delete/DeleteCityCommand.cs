@@ -30,6 +30,10 @@ namespace Application.Cities.Commands.Delete
                 {
 
                     Message = "Deleted Success",
+                    Result = new
+                    {
+                        CityId = city.Id
+                    }
 
                 });
 

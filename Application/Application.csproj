@@ -22,9 +22,4 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Cities\Dtos\" />
-    <Folder Include="Cities\Queries\" />
-  </ItemGroup>
-
 </Project>
