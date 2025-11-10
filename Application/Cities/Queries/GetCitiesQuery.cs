@@ -22,12 +22,16 @@ namespace Application.Cities.Queries
             public async Task<ResponseDto<object>> Handle(GetCitiesQuery request, CancellationToken cancellationToken)
             {
                 var pagenumber = request.PageNumber >= 0 ? 1 : request.PageNumber;
+
                 var pageSize = 10;
 
 
                 var query = _dbContext.Cities.AsQueryable();
+
                 var totalCount = await query.CountAsync(cancellationToken);
+
                 var totalPages = (totalCount + pageSize - 1) / pageSize;
+
                 var cities = await query.Select(
                     c => new GetCitiesDto
                     {
@@ -40,6 +44,7 @@ namespace Application.Cities.Queries
                             Name = CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ar" ? c.Country.NameAr : c.Country.NameEn,
                         }
                     }).ToListAsync(cancellationToken);
+
                 var paginatedlist = new PaginatedList<GetCitiesDto>
                 {
                     Items = cities,
@@ -48,6 +53,7 @@ namespace Application.Cities.Queries
                     PageSize = pageSize,
                     PageNumber = pagenumber
                 };
+
                 return ResponseDto<object>.Success(new ResultDto
                 {
                     Message = "All Cities",

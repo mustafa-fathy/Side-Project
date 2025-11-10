@@ -54,5 +54,13 @@ namespace WebApp_With_CQRS.Controllers
             return result.IsSuccess ? Ok(result.Result) : BadRequest(result.Error);
         }
 
+        [HttpGet("fetch1")]
+        public async Task<IActionResult> GetCitiesById([FromQuery] int countryId)
+        {
+            var getcities = new GetCitiesByCountryIdQuery { CountryId = countryId };
+            var result = await Mediator.Send(getcities);
+            return result.IsSuccess ? Ok(result.Result) : BadRequest(result.Error);
+        }
+
     }
 }
