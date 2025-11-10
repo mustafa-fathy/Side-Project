@@ -17,11 +17,13 @@ namespace Infrastructure.Presistence.Coonfiguration
             builder.Property(p => p.NameEn).HasMaxLength(45).IsRequired();
             builder.HasQueryFilter(p => !p.Deleted);
             builder.Property(p => p.CountryId).HasMaxLength(45);
-            builder.Property(p => p.CreatedById).HasMaxLength(45).IsRequired();
+            builder.Property(p => p.CreatedById).HasMaxLength(45);
             builder.Property(p => p.CreationDate).HasColumnType("DATETIME").HasDefaultValueSql("GETDATE()");
             builder.Property(p => p.ModificationDate).HasColumnType("DATETIME");
             builder.Property(p => p.ModifiedById).HasMaxLength(45);
-            
+            builder.Property(e => e.CreatedById)
+      .HasDefaultValue("system");
+
         }
     }
 }

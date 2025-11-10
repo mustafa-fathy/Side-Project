@@ -5,7 +5,7 @@ namespace Domain.Entities
     public class BaseEntity
     {
         [MaxLength(450)]
-        public string CreatedById { get; set; }
+        public string ?CreatedById { get; set; }
         public DateTime CreationDate { get; set; }
         [MaxLength(450)]
         public string? ModifiedById { get; set; }

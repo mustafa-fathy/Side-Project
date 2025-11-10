@@ -8,12 +8,12 @@ namespace Application.Common.Dtos
 {
     public class ResultDto
     {
-        public object Result { get;set }
+        public object Result { get; set; }
         public string Message { get; set; }
     }
     public class ResultDtoThirdParty<T>
     {
-        public T Result { get;set }
+        public T Result { get; set; }
         
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Application.Common.Dtos;
 using Application.Interfaces;
 using MediatR;
-using Microsoft.Identity.Client;
 using SendGrid.Helpers.Errors.Model;
 
 namespace Application.Cities.Commands.Delete

@@ -4,6 +4,7 @@ using Infrastructure.Presistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251105110021_Update")]
+    partial class Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,10 +93,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedById")
-                        .ValueGeneratedOnAdd()
+                        .IsRequired()
                         .HasMaxLength(45)
-                        .HasColumnType("nvarchar(45)")
-                        .HasDefaultValue("system");
+                        .HasColumnType("nvarchar(45)");
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()

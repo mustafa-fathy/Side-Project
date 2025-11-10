@@ -1,4 +1,4 @@
-
+using Application.Interfaces;
 using Infrastructure.Presistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +17,11 @@ namespace WebApp_With_CQRS
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("ConnectString")));
+            builder.Services.AddScoped<IAppDbContext>(provider => provider.GetRequiredService<AppDbContext>());
+            builder.Services.AddMediatR(cfg =>cfg
+            .RegisterServicesFromAssembly(typeof(IAppDbContext).Assembly));
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
