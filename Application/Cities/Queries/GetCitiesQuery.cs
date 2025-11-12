@@ -21,7 +21,7 @@ namespace Application.Cities.Queries
             }
             public async Task<ResponseDto<object>> Handle(GetCitiesQuery request, CancellationToken cancellationToken)
             {
-                var pagenumber = request.PageNumber >= 0 ? 1 : request.PageNumber;
+                var pagenumber = request.PageNumber <= 0 ? 1 : request.PageNumber;
 
                 var pageSize = 10;
 

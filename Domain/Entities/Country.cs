@@ -7,8 +7,8 @@ namespace Domain.Entities
         public int Id { get; set; }
         public string NameAr { get; set; }
         public string NameEn { get; set; }
-        public Int32 Code { get; set; }
-        public string Icon { get; set; }
+        public byte Code { get; set; }
+        public string? Icon { get; set; }
         public virtual ICollection<City> Cities { get; set; } 
     }
 }
