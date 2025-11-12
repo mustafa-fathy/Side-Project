@@ -19,7 +19,7 @@ namespace WebApp_With_CQRS.Controllers
         {
             command.CurruntUserId = CurruntUserId;
             var result = await Mediator.Send(command);
-            return !result.IsSuccess ? BadRequest(result.Error) : Ok(result.Result);
+            return result.IsSuccess ? Ok(result.Result) : BadRequest(result.Error);
         }
 
         [HttpDelete("Delete")]
