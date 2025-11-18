@@ -43,7 +43,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -52,7 +52,7 @@ namespace Infrastructure.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -69,6 +69,111 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AirPort", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Auth.AppUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DateTime")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<bool>("Deleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("LastLogin")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("DateTime");
+
+                    b.Property<string>("ModifiedById")
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ProfilePicture")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("code")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("AppUsers", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.City", b =>
@@ -97,14 +202,14 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -150,7 +255,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -159,7 +264,7 @@ namespace Infrastructure.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -200,7 +305,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -209,7 +314,7 @@ namespace Infrastructure.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -227,6 +332,76 @@ namespace Infrastructure.Migrations
                     b.ToTable("CityTrip", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entities.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ContactPerson")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DateTime")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<bool>("Deleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("DateTime");
+
+                    b.Property<string>("ModifiedById")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Companies", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Entities.Country", b =>
                 {
                     b.Property<int>("Id")
@@ -241,9 +416,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<int>("Code")
+                    b.Property<byte>("Code")
                         .HasMaxLength(45)
-                        .HasColumnType("int");
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("CreatedById")
                         .IsRequired()
@@ -252,7 +427,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -261,11 +436,10 @@ namespace Infrastructure.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<string>("Icon")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -284,6 +458,63 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Country", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Employee", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<int>("AgentCode")
+                        .HasMaxLength(20)
+                        .IsUnicode(true)
+                        .HasColumnType("int");
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DateTime")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<bool>("Deleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTime>("LastLogin")
+                        .HasColumnType("DateTime2(7)");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("DateTime");
+
+                    b.Property<string>("ModifiedById")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<decimal>("ServiceFees")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Target")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Employee", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Package", b =>
@@ -314,7 +545,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -335,7 +566,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -392,7 +623,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -414,7 +645,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -441,6 +672,17 @@ namespace Infrastructure.Migrations
                     b.HasIndex("FromCityId");
 
                     b.ToTable("Trip", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Auth.AppUser", b =>
+                {
+                    b.HasOne("Domain.Entities.Country", "Country")
+                        .WithMany("AppUsers")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("Domain.Entities.City", b =>
@@ -492,6 +734,28 @@ namespace Infrastructure.Migrations
                     b.Navigation("Trips");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Company", b =>
+                {
+                    b.HasOne("Domain.Entities.Auth.AppUser", "AppUser")
+                        .WithMany("Companies")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Employee", b =>
+                {
+                    b.HasOne("Domain.Entities.Auth.AppUser", "AppUser")
+                        .WithMany("Employees")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("Domain.Entities.Package", b =>
                 {
                     b.HasOne("Domain.Entities.City", "City")
@@ -522,6 +786,13 @@ namespace Infrastructure.Migrations
                     b.Navigation("City");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Auth.AppUser", b =>
+                {
+                    b.Navigation("Companies");
+
+                    b.Navigation("Employees");
+                });
+
             modelBuilder.Entity("Domain.Entities.City", b =>
                 {
                     b.Navigation("CityPackages");
@@ -535,6 +806,8 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Country", b =>
                 {
+                    b.Navigation("AppUsers");
+
                     b.Navigation("Cities");
                 });
 

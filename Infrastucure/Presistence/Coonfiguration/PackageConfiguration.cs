@@ -12,7 +12,6 @@ namespace Infrastructure.Presistence.Coonfiguration
 
             builder.HasKey(k => k.Id);
 
-       
             builder.HasOne(p => p.City)
                    .WithMany(c => c.Packages)
                    .HasForeignKey(p => p.FromCityId)
@@ -25,11 +24,20 @@ namespace Infrastructure.Presistence.Coonfiguration
             //    .OnDelete(DeleteBehavior.Restrict);
 
 
-            builder.Property(p => p.Id).IsRequired();
-            builder.Property(p => p.StartingDate).IsRequired();
-            builder.Property(p => p.EndingDate).IsRequired();
-            builder.Property(p => p.Name).IsRequired();
-            builder.Property(p => p.IsRefundable).IsRequired();
+            builder.Property(p => p.Id)
+                .IsRequired();
+
+            builder.Property(p => p.StartingDate)
+                .IsRequired();
+
+            builder.Property(p => p.EndingDate)
+                .IsRequired();
+
+            builder.Property(p => p.Name)
+                .IsRequired();
+
+            builder.Property(p => p.IsRefundable)
+                .IsRequired();
 
             builder.Property(p => p.Price)
                 .HasColumnType("decimal(18,2)")
@@ -46,15 +54,18 @@ namespace Infrastructure.Presistence.Coonfiguration
                 .HasMaxLength(45);
 
             builder.Property(p => p.CreationDate)
-                .HasColumnType("DATETIME")
+                .HasColumnType("DateTime")
                 .HasDefaultValueSql("GETDATE()")
                 .IsRequired();
 
             builder.Property(p => p.ModificationDate)
-                .HasColumnType("DATETIME");
+                .HasColumnType("DateTime");
 
-            builder.Property(p => p.Active).HasDefaultValue(true);
-            builder.Property(p => p.Deleted).HasDefaultValue(false);
+            builder.Property(p => p.Active)
+                .HasDefaultValue(true);
+
+            builder.Property(p => p.Deleted)
+                .HasDefaultValue(false);
 
             builder.HasQueryFilter(p => !p.Deleted);
         }

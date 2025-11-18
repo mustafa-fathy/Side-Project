@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Domain.Entities.Auth;
 
 namespace Domain.Entities
 {
@@ -9,7 +9,9 @@ namespace Domain.Entities
         public string NameEn { get; set; }
         public byte Code { get; set; }
         public string? Icon { get; set; }
-        public virtual ICollection<City> Cities { get; set; } 
+        public virtual ICollection<City> Cities { get; set; }
+        public ICollection<AppUser> AppUsers { get; set; }
+
     }
 }
 

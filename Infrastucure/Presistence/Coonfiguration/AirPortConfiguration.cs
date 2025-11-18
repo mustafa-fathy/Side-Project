@@ -11,13 +11,29 @@ namespace Infrastructure.Presistence.Coonfiguration
             builder.ToTable("AirPort");
             builder.HasKey(k => k.Id);
             builder.Property(p => p.NameAr);
+
             builder.Property(p => p.NameEn);
-            builder.Property(p => p.CreatedById).HasMaxLength(45);
-            builder.Property(p => p.ModifiedById).HasMaxLength(45);
-            builder.Property(p => p.CreationDate).HasColumnType("DATETIME").HasDefaultValueSql("GETDATE()").IsRequired();
-            builder.Property(p => p.ModificationDate).HasColumnType("DATETIME");
+
+            builder.Property(p => p.CreatedById)
+                .HasMaxLength(45);
+
+            builder.Property(p => p.ModifiedById)
+                .HasMaxLength(45);
+
+            builder.Property(p => p.CreationDate)
+                .HasColumnType("DateTime")
+                .HasDefaultValueSql("GETDATE()")
+                .IsRequired();
+
+            builder.Property(p => p.ModificationDate)
+                .HasColumnType("DateTime");
+
             builder.Property(p => p.Code);
-            builder.Property(p => p.Deleted).HasDefaultValue(false).IsRequired();
+
+            builder.Property(p => p.Deleted)
+                .HasDefaultValue(false)
+                .IsRequired();
+
             builder.HasQueryFilter(q => !q.Deleted);
             
         }

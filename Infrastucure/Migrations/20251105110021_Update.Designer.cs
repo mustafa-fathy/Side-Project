@@ -46,7 +46,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -55,7 +55,7 @@ namespace Infrastructure.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -99,14 +99,14 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -152,7 +152,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -161,7 +161,7 @@ namespace Infrastructure.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -202,7 +202,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -211,7 +211,7 @@ namespace Infrastructure.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -254,7 +254,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -267,7 +267,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -316,7 +316,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -325,7 +325,7 @@ namespace Infrastructure.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime>("EndingDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("DateTime2");
 
                     b.Property<int>("FromCityId")
                         .HasColumnType("int");
@@ -337,7 +337,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -355,7 +355,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartingDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("DateTime2");
 
                     b.Property<int>("ToCityId")
                         .HasColumnType("int");
@@ -394,7 +394,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("DATETIME")
+                        .HasColumnType("DateTime")
                         .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
@@ -403,7 +403,7 @@ namespace Infrastructure.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime>("EndingDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("DateTime2");
 
                     b.Property<int>("FromCityId")
                         .HasColumnType("int");
@@ -416,7 +416,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModificationDate")
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("ModifiedById")
                         .HasMaxLength(45)
@@ -433,7 +433,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartingDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("DateTime2");
 
                     b.Property<TimeSpan>("TripHours")
                         .HasColumnType("time");
