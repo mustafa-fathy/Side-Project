@@ -22,4 +22,21 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Companies\Commands\" />
+    <Folder Include="Companies\Dtos\" />
+    <Folder Include="Companies\Queries\" />
+    <Folder Include="Employees\Commands\" />
+    <Folder Include="Employees\Dtos\" />
+    <Folder Include="Employees\Queries\" />
+    <Folder Include="Packages\Commands\Create\" />
+    <Folder Include="Packages\Commands\Delete\" />
+    <Folder Include="Packages\Commands\Edit\" />
+    <Folder Include="Packages\Dtos\" />
+    <Folder Include="Packages\Queries\" />
+    <Folder Include="Trips\Commands\" />
+    <Folder Include="Trips\Dtos\" />
+    <Folder Include="Trips\Queries\" />
+  </ItemGroup>
+
 </Project>
