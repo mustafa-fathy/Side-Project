@@ -34,6 +34,10 @@
     <Folder Include="Employees\Dtos\" />
     <Folder Include="Employees\Queries\" />
     <Folder Include="Features\Files\Commands\" />
+    <Folder Include="Packagess\Commands\Edit\" />
+    <Folder Include="Packagess\Commands\Delete\" />
+    <Folder Include="Packagess\Dtos\" />
+    <Folder Include="Packagess\Queries\" />
     <Folder Include="Trips\Commands\Create\" />
     <Folder Include="Trips\Commands\Delete\" />
     <Folder Include="Trips\Commands\Edit\" />
