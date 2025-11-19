@@ -33,6 +33,7 @@
     <Folder Include="Employees\Commands\Edit\" />
     <Folder Include="Employees\Dtos\" />
     <Folder Include="Employees\Queries\" />
+    <Folder Include="Features\Files\Commands\" />
     <Folder Include="Packages\Commands\Delete\" />
     <Folder Include="Packages\Commands\Edit\" />
     <Folder Include="Packages\Dtos\" />
